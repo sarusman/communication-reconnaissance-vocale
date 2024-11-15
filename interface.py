@@ -37,7 +37,10 @@ class ApplicationDetecteurCouleur:
             self.enregistrement_en_cours = False
             self.bouton_enregistrement.config(text="Démarrer l'enregistrement", bg="orange")
             self.arreter_flux_audio()
-            self.enregistrer_fichier_audio()
+            try:
+                self.enregistrer_fichier_audio()
+            except:
+                pass
             self.analyser_et_afficher_couleur()
             self.afficher_signal_enregistre()
 

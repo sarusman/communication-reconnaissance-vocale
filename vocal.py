@@ -39,17 +39,13 @@ def lire_fichier_wav(chemin_fichier):
         sample_width = wf.getsampwidth()
         frequence_echantillonnage = wf.getframerate()
         n_frames = wf.getnframes()
-
         # Lire les données du fichier
         donnees_audio = wf.readframes(n_frames)
-
         # Convertir les données en tableau numpy
         signal_audio = np.frombuffer(donnees_audio, dtype=np.int16)
-
         # Si le fichier est stéréo, on prend juste un canal (par exemple, le canal gauche)
         if n_channels == 2:
             signal_audio = signal_audio[::2]
-
     return signal_audio, frequence_echantillonnage
 
 def obtenir_couleur_vocale():
@@ -60,11 +56,8 @@ def obtenir_couleur_vocale():
         print("Enregistrement terminé, traitement en cours...")
 
         try:
-            # Utiliser Google Speech API pour convertir l'audio en texte
             texte = recognizer.recognize_google(audio_data, language="fr-FR")
             print("Vous avez dit : " + texte)
-
-            # Détecter la couleur en fonction du texte
             couleur = None
             if texte.lower() == "rouge":
                 couleur = "red"
