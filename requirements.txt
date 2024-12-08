@@ -1,1 +1,2 @@
 speechrecognition
+pip3 install faster-whisper sounddevice scipy
