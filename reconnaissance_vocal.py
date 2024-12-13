@@ -12,15 +12,11 @@ couleurs = {
     "violet": "#800080"
 }
 def reconnaissance_vocal() :
-    # Initialiser le recognizer
     recognizer = sr.Recognizer()
-    # Utiliser le microphone pour capturer l'audio
     with sr.Microphone() as source:
-        print("Parlez quelque chose...")
+        print("Dîtes quelque chose...")
         try:
-            # Écouter et capturer l'audio
             audio = recognizer.listen(source)
-            # Reconnaître le texte (langue française)
             texte = recognizer.recognize_google(audio, language="fr-FR")
             print("Vous avez dit : ", texte)
             couleur_detectee = next((couleur for couleur in couleurs if couleur in texte.lower()), None)

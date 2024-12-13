@@ -16,7 +16,6 @@ def affichage_couleur() :
     "violet": "#800080"
     }
     if couleur in couleurs:
-        # Création d'une figure avec la couleur sélectionnée
         plt.figure(figsize=(4, 4))
         plt.title(f"Couleur détectée : {couleur.capitalize()}")
         plt.gca().add_patch(plt.Rectangle((0, 0), 1, 1, color=couleurs[couleur]))
